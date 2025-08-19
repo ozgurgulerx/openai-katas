@@ -36,8 +36,9 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Light mode
-  logo: assets/logo.svg
-  favicon: assets/favicon.png
+  icon:
+    logo: material/school
+  favicon: material/library
 
 plugins:
   - search
