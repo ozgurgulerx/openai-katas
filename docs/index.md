@@ -1,16 +1,16 @@
 ---
-title: Learn GenAI by Doing
+title: Learn OpenAI API by Doing
 ---
 
-# GenQuest — Learn GenAI by Katas
+# OpenAI Katas — Learn by Doing
 
 <div class="hero">
-  <h1>Build. Test. Ship.</h1>
-  <p>Hands-on GenAI katas with instant feedback, zero local setup, and professional patterns.</p>
+  <h1>Learn. Practice. Master.</h1>
+  <p>Hands-on OpenAI API katas that build your skills progressively through focused exercises and real-world patterns.</p>
   <p class="cta">
-    <a class="md-button md-button--primary" href="https://github.com/codespaces/new/OWNER/REPO?quickstart=1">Open in Codespaces</a>
+    <a class="md-button md-button--primary" href="https://github.com/codespaces/new/ozgurgulerx/openai-katas?quickstart=1">Open in Codespaces</a>
     <a class="md-button md-button--secondary" href="katas">Browse Katas</a>
-    <a class="md-button" href="https://github.com/OWNER/REPO">View on GitHub</a>
+    <a class="md-button" href="https://github.com/ozgurgulerx/openai-katas">View on GitHub</a>
   </p>
 </div>
 
