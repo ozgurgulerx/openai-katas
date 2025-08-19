@@ -1,17 +1,10 @@
-/* Completion overlay for Material grid cards */
-.md-typeset .card.done {
-  position: relative;
-  opacity: .95;
-}
+/* Completion badge on Material cards */
+.md-typeset .card.done { position: relative; opacity: .96; }
 .md-typeset .card.done::after {
   content: "✓ Completed";
-  position: absolute;
-  top: .6rem; right: .8rem;
-  font-weight: 700;
-  padding: .1rem .6rem;
-  border-radius: .6rem;
-  border: 2px solid currentColor;
+  position: absolute; top: .6rem; right: .8rem;
+  font-weight: 700; padding: .12rem .6rem;
+  border-radius: .6rem; border: 2px solid currentColor;
 }
-
-/* Resume banner spacing (optional) */
-#resume-banner { margin: .6rem 0 1rem; }
+/* Hide solution blocks until completed (trust-based) */
+.solution.locked { display: none; }

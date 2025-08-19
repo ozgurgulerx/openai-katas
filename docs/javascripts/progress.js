@@ -1,56 +1,63 @@
-/* Progress tracking for Browse Katas (no backend).
- * - Stores completion in localStorage under a namespaced key.
- * - Paints "✓ Completed" overlays on cards.
- * - Sets the Resume button to the first incomplete kata.
- * - Exposes window.markKataDone(slug) for kata pages.
+/* Local, trust-based progress for katas.
+ * - Stores completed slugs in localStorage.
+ * - Paints "✓ Completed" on cards.
+ * - Sets "Resume next kata" button.
+ * - Exposes markKataDone(slug) and recordKataVisit(slug).
+ * - Reveals solution blocks on pages already marked complete.
  */
 (function () {
-  const KEY = "genai-katas.v1.done";      // ["01-tokens-and-temp", ...]
-  const LAST = "genai-katas.v1.last";     // last visited slug (optional)
-  const isBrowser = typeof window !== "undefined" && window.localStorage;
-  const get = (k) => (isBrowser ? window.localStorage.getItem(k) : null);
-  const set = (k, v) => isBrowser && window.localStorage.setItem(k, v);
+  const DONE_KEY = "genai-katas.v1.done";   // ["01-tokens-and-temp", ...]
+  const LAST_KEY = "genai-katas.v1.last";   // "03-tools-functions"
+  const safeGet = k => {
+    try { return JSON.parse(localStorage.getItem(k) || "null"); } catch { return null; }
+  };
+  const safeSet = (k, v) => localStorage.setItem(k, JSON.stringify(v));
+  const done = new Set(safeGet(DONE_KEY) || []);
 
-  const done = new Set(JSON.parse(get(KEY) || "[]"));
-
-  // public API for kata pages
   window.markKataDone = function (slug) {
     if (!slug) return;
     done.add(slug);
-    set(KEY, JSON.stringify([...done]));
+    safeSet(DONE_KEY, [...done]);
     paint();
+    revealSolutions();
   };
   window.recordKataVisit = function (slug) {
-    if (slug) set(LAST, slug);
+    if (slug) localStorage.setItem(LAST_KEY, slug);
   };
 
-  function nextIncomplete(allSlugs) {
-    for (const s of allSlugs) if (!done.has(s)) return s;
-    return null;
-  }
-
   function paint() {
-    // Paint completion on cards
-    document.querySelectorAll("[data-kata-slug]").forEach((el) => {
+    // Paint completion badge on Browse cards
+    document.querySelectorAll("[data-kata-slug]").forEach(el => {
       const slug = el.getAttribute("data-kata-slug");
       const card = el.closest(".card, li");
       if (card) card.classList.toggle("done", done.has(slug));
     });
-    // Wire Resume button
-    const resumeBtn = document.getElementById("resume-next");
-    if (resumeBtn) {
+    // Resume next
+    const resume = document.getElementById("resume-next");
+    if (resume) {
       const slugs = Array.from(document.querySelectorAll("[data-kata-slug]"))
-        .map((el) => el.getAttribute("data-kata-slug"));
-      const nxt = nextIncomplete(slugs);
-      if (nxt) {
-        const target = document.querySelector(`[data-kata-slug="${nxt}"]`);
-        if (target) resumeBtn.href = target.href;
-        resumeBtn.style.display = "inline-flex";
+        .map(a => a.getAttribute("data-kata-slug"));
+      const next = slugs.find(s => !done.has(s));
+      if (next) {
+        const target = document.querySelector(`[data-kata-slug="${next}"]`);
+        if (target) resume.href = target.href;
+        resume.style.display = "inline-flex";
       } else {
-        resumeBtn.style.display = "none";
+        resume.style.display = "none";
       }
     }
   }
 
-  document.addEventListener("DOMContentLoaded", paint);
+  function revealSolutions() {
+    // Unhide any blocks tied to completed slugs
+    document.querySelectorAll("[data-solution-for]").forEach(node => {
+      const slug = node.getAttribute("data-solution-for");
+      if (done.has(slug)) node.classList.remove("locked");
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    paint();
+    revealSolutions();
+  });
 })();

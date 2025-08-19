@@ -31,6 +31,15 @@ jobs:
         run: |
           pip install -r requirements.txt
           
+      - name: Sync notebooks (Jupytext)
+        run: |
+          python - <<'PY'
+          import pathlib, subprocess
+          for py in pathlib.Path('docs/katas').rglob('*.py'):
+              if py.name in ('question.py','answer.py'):
+                  subprocess.check_call(['jupytext','--sync',str(py)])
+          PY
+          
       - name: Build MkDocs site
         run: mkdocs build
         
