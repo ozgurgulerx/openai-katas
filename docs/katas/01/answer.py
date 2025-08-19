@@ -1,18 +1,26 @@
 # %% [markdown]
-# # 01 · Tokens & Temperature — Answer (skeleton)
+# # 01 · Responses API — Simple Text Generation — Answer (skeleton)
 # Reference scaffold; replace placeholders with your actual SDK calls.
 #
 # ### Approach
-# - Stable system/user prompt.
-# - Vary decoding params only.
+# - Accept a plain text prompt.
+# - Call the OpenAI Responses API once and return the text output.
 
 # %%
 from typing import Any
 
-def run_prompt(temp: float, max_new_tokens: int, top_p: float = 1.0) -> str:
-    # TODO: wire to your SDK; keep signature stable for tests
-    return f"(ref) temp={temp} max_new={max_new_tokens} top_p={top_p}"
+def run_prompt(prompt: str, model: str = "gpt-4o-mini") -> str:
+    """Reference: simple text generation via Responses API.
+
+    Example (OpenAI Python SDK):
+        # from openai import OpenAI
+        # client = OpenAI()
+        # resp = client.responses.create(model=model, input=prompt)
+        # return resp.output_text
+    """
+    # TODO: wire to your SDK; keep signature stable for any checks
+    return f"(ref) model={model} prompt_len={len(prompt)}"
 
 # %%
-for t in (0.0, 0.4, 0.8):
-    print("ref:", run_prompt(temp=t, max_new_tokens=64, top_p=0.95))
+if __name__ == "__main__":
+    print("ref:", run_prompt("Write one cheerful sentence about learning the Responses API."))
