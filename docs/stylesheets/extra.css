@@ -21,18 +21,9 @@
 .hero .cta .md-button {
   margin: .4rem .3rem;
 }
-.hero .cta .md-button:not(.md-button--primary) {
-  background: transparent;
-  border: 2px solid currentColor;
-}
-/* Fix hover contrast for buttons */
+/* All buttons have same hover effect */
 .hero .cta .md-button--primary:hover {
   opacity: 0.9;
-}
-.hero .cta .md-button:not(.md-button--primary):hover {
-  background: rgb(20, 184, 166);
-  border-color: rgb(20, 184, 166);
-  color: white !important;
 }
 
 /* Tighten code blocks a touch for training density */

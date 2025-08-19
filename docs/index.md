@@ -11,8 +11,8 @@ hide:
   <p>Hands-on OpenAI API katas that build your skills progressively through focused exercises and real-world patterns.</p>
   <p class="cta">
     <a class="md-button md-button--primary" href="https://github.com/codespaces/new/ozgurgulerx/openai-katas?quickstart=1">Open in Codespaces</a>
-    <a class="md-button md-button--secondary" href="katas">Browse Katas</a>
-    <a class="md-button" href="https://github.com/ozgurgulerx/openai-katas">View on GitHub</a>
+    <a class="md-button md-button--primary" href="katas">Browse Katas</a>
+    <a class="md-button md-button--primary" href="https://github.com/ozgurgulerx/openai-katas">View on GitHub</a>
   </p>
 </div>
 
