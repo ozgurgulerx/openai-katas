@@ -1,0 +1,82 @@
+site_name: GenQuest — Learn GenAI by Katas
+site_description: Duolingo-like GenAI katas: build, test, ship. Zero-setup via Codespaces.
+site_url: https://OWNER.github.io/REPO
+repo_url: https://github.com/OWNER/REPO
+repo_name: OWNER/REPO
+edit_uri: ""
+
+theme:
+  name: material
+  language: en
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - content.action.view
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - announce.dismiss
+    - icon.admonition
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Dark mode
+    - scheme: slate
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Light mode
+  logo: assets/logo.svg
+  favicon: assets/favicon.png
+
+plugins:
+  - search
+  - mkdocs-jupyter:
+      execute: false
+      allow_errors: false
+      kernel_name: python3
+      ignore_h1_titles: true
+      include: ["*.ipynb", "*.py"]
+      include_source: true
+      include_requirejs: true
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.critic
+  - pymdownx.snippets
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: simple/github
+      link: https://github.com/OWNER
+    - icon: simple/linkedin
+      link: https://www.linkedin.com/in/OWNER
+    - icon: simple/x
+      link: https://x.com/OWNER
+
+nav:
+  - Home: index.md
+  - Katas: katas.md
