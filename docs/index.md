@@ -1,5 +1,7 @@
 ---
 title: Learn OpenAI API by Doing
+hide:
+  - toc
 ---
 
 # OpenAI Katas — Learn by Doing
@@ -12,6 +14,15 @@ title: Learn OpenAI API by Doing
     <a class="md-button md-button--secondary" href="katas">Browse Katas</a>
     <a class="md-button" href="https://github.com/ozgurgulerx/openai-katas">View on GitHub</a>
   </p>
+</div>
+
+<div class="grid cards" markdown>
+- :material-lightning-bolt: **Zero setup**  
+  Open in **Codespaces** – environment is ready in seconds.
+- :material-traffic-light: **Instant feedback**  
+  `pytest` locally + CI autograding mirror each other exactly.
+- :material-cube-outline: **Real patterns**  
+  Prompt tools, function calling, evals, caching, agents.
 </div>
 
 ---
