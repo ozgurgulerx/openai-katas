@@ -26,11 +26,13 @@
   border: 2px solid currentColor;
 }
 /* Fix hover contrast for buttons */
-.hero .cta .md-button:hover {
-  color: rgb(17,24,39) !important;
-}
 .hero .cta .md-button--primary:hover {
   opacity: 0.9;
+}
+.hero .cta .md-button:not(.md-button--primary):hover {
+  background: rgb(20, 184, 166);
+  border-color: rgb(20, 184, 166);
+  color: white !important;
 }
 
 /* Tighten code blocks a touch for training density */
