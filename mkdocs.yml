@@ -1,8 +1,8 @@
-site_name: GenQuest — Learn GenAI by Katas
-site_description: Duolingo-like GenAI katas: build, test, ship. Zero-setup via Codespaces.
-site_url: https://OWNER.github.io/REPO
-repo_url: https://github.com/OWNER/REPO
-repo_name: OWNER/REPO
+site_name: OpenAI Katas — Learn GenAI by Katas
+site_description: Learn the OpenAI API platform and modern GenAI builder patterns through focused katas.
+site_url: https://ozgurgulerx.github.io/openai-katas
+repo_url: https://github.com/ozgurgulerx/openai-katas
+repo_name: ozgurgulerx/openai-katas
 edit_uri: ""
 
 theme:
@@ -71,11 +71,7 @@ extra_css:
 extra:
   social:
     - icon: simple/github
-      link: https://github.com/OWNER
-    - icon: simple/linkedin
-      link: https://www.linkedin.com/in/OWNER
-    - icon: simple/x
-      link: https://x.com/OWNER
+      link: https://github.com/ozgurgulerx
 
 nav:
   - Home: index.md
